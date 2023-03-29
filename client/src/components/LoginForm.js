@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button, Error, Input, FormField, Label } from "../styles";
+import React from "react";
+import { Button, Error, Input, FormField } from "../styles";
 import styled from "styled-components";
 import { useFormik } from "formik";
 import * as yup from "yup";
