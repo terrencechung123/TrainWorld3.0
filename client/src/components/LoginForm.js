@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Error, Input, FormField, Label, Textarea } from "../styles";
+import { Button, Error, Input, FormField, Textarea } from "../styles";
 import styled from "styled-components";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -64,7 +64,7 @@ function SignUpForm({ onLogin }) {
   return (
     <form onSubmit={formik.handleSubmit}>
       <FormField>
-        <Label htmlFor="username">Username</Label>
+        <CustomLabel htmlFor="username">Username</CustomLabel>
         <Input
           type="text"
           id="username"
@@ -74,7 +74,7 @@ function SignUpForm({ onLogin }) {
         />
       </FormField>
       <FormField>
-        <Label htmlFor="password">Password</Label>
+        <CustomLabel htmlFor="password">Password</CustomLabel>
         <Input
           type="password"
           id="password"
@@ -84,7 +84,7 @@ function SignUpForm({ onLogin }) {
         />
       </FormField>
       <FormField>
-        <Label htmlFor="passwordcConfirmation">Password Confirmation</Label>
+        <CustomLabel htmlFor="passwordcConfirmation">Password Confirmation</CustomLabel>
         <Input
           type="password"
           id="passwordConfirmation"
@@ -94,7 +94,7 @@ function SignUpForm({ onLogin }) {
         />
       </FormField>
       <FormField>
-        <Label htmlFor="imageUrl">Profile Image</Label>
+        <CustomLabel htmlFor="imageUrl">Profile Image</CustomLabel>
         <Input
           type="text"
           id="imageUrl"
@@ -103,7 +103,7 @@ function SignUpForm({ onLogin }) {
         />
       </FormField>
       <FormField>
-        <Label htmlFor="bio">Bio</Label>
+        <CustomLabel htmlFor="bio">Bio</CustomLabel>
         <Textarea
           rows="3"
           id="bio"
