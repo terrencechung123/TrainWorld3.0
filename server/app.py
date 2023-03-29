@@ -7,7 +7,7 @@ from flask_login import current_user
 
 from config import *
 from models import db, User, Ticket, Train
-from dotenv import load_dotenv
+
 
 class Signup(Resource):
 
@@ -27,14 +27,14 @@ class Signup(Resource):
         user.password_hash = password
         print('first')
         try:
-            print('here!')
+            print('here')
             db.session.add(user)
             db.session.commit()
             session['user_id'] = user.id
             print(user.to_dict())
             return user.to_dict(), 201
         except IntegrityError:
-            print('no, here!')
+            print('no, no, no, no, no')
             return {'error': '422 Unprocessable Entity'}, 422
 
 class CheckSession(Resource):
