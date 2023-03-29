@@ -7,7 +7,6 @@ from flask_login import current_user
 
 from config import *
 from models import db, User, Ticket, Train
-import os
 from dotenv import load_dotenv
 
 class Signup(Resource):

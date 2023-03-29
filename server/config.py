@@ -6,7 +6,6 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 import os
 from dotenv import load_dotenv
-from flask_cors import CORS
 load_dotenv()
 
 app = Flask(
