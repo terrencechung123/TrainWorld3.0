@@ -18,6 +18,7 @@ faker = "==15.3.2"
 flask-login = "*"
 python-dotenv = "*"
 psycopg2-binary = "*"
+gunicorn = "20.1.0"
 
 
 [dev-packages]
