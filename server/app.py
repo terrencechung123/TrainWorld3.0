@@ -48,7 +48,9 @@ class CheckSession(Resource):
             return response
         except:
             abort(401, "Unauthorized")
-api.add_resource(CheckSession, '/check_session', endpoint='check_session')
+
+api.add_resource(CheckSession, '/api/check_session')
+
 
 class Login(Resource):
     def post(self):
@@ -154,7 +156,7 @@ class TicketById(Resource):
         db.session.commit()
         return make_response({}, 204)
     
-api.add_resource(TicketById, '/tickets/<int:id>')
+api.add_resource(TicketById, '/api/tickets/<int:id>')
 
 
 
@@ -216,7 +218,7 @@ class Trains(Resource):
             train.to_dict(),
             201
         )
-api.add_resource(Trains, '/trains')
+api.add_resource(Trains, '/api/trains')
 
 class TrainById(Resource):
     def get(self, id):
@@ -234,7 +236,7 @@ class TrainById(Resource):
         db.session.delete(train)
         db.session.commit()
         return make_response({}, 204)
-api.add_resource(TrainById, "/trains/<int:id>")
+api.add_resource(TrainById, "/api/trains/<int:id>")
 
 
 
@@ -256,14 +258,14 @@ class UserById(Resource):
         return make_response(
             user,
             200)
-api.add_resource(UserById, "/users/<int:id>")
+api.add_resource(UserById, "/api/users/<int:id>")
 
-api.add_resource(Users,'/users')
-api.add_resource(Tickets, '/tickets')
-api.add_resource(Signup, '/signup', endpoint='signup')
-api.add_resource(Login, '/login', endpoint='login')
-api.add_resource(Logout, '/logout', endpoint='logout')
-api.add_resource(TicketIndex, '/ticket_index', endpoint='ticket_index')
+api.add_resource(Users,'/api/users')
+api.add_resource(Tickets, '/api/tickets')
+api.add_resource(Signup, '/api/signup')
+api.add_resource(Login, '/api/login')
+api.add_resource(Logout, '/api/logout')
+api.add_resource(TicketIndex, '/api/ticket_index')
 
 
 if __name__ == '__main__':

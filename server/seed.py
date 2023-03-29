@@ -17,7 +17,6 @@ with app.app_context():
     Train.query.delete()
 
 
-    fake = Faker()
 
     print("Creating users...")
 

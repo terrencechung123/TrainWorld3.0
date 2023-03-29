@@ -29,7 +29,7 @@ function NewTrain() {
     //   arrival_time: arrivalTime,
     //   capacity: capacity,
         };
-        fetch("/trains", {
+        fetch("/api/trains", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

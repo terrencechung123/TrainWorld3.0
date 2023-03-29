@@ -15,7 +15,7 @@ function SignUpForm({ onLogin }) {
       .string()
       .oneOf([yup.ref("password"), null], "Passwords must match")
       .required(),
-    imageUrl: yup.string().required(),
+    image_url: yup.string().required(),
     bio: yup.string().required(),
   });
 
@@ -26,13 +26,13 @@ function SignUpForm({ onLogin }) {
       username: "",
       password: "",
       passwordConfirmation: "",
-      imageUrl: "",
+      image_url: "",
       bio: "",
     },
     validationSchema,
     onSubmit: (values, { setErrors, setSubmitting }) => {
       setSubmitting(true);
-      fetch("/signup", {
+      fetch("/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,11 +90,11 @@ function SignUpForm({ onLogin }) {
         />
       </FormField>
       <FormField>
-        <WhiteLabel htmlFor="imageUrl">Profile Image</WhiteLabel>
+        <WhiteLabel htmlFor="image_url">Profile Image</WhiteLabel>
         <WhiteInput
           type="text"
-          id="imageUrl"
-          value={formik.values.imageUrl}
+          id="image_url"
+          value={formik.values.image_url}
           onChange={formik.handleChange}
         />
       </FormField>

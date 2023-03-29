@@ -6,7 +6,7 @@ import { Box, Button } from "../styles";
 function UserList() {
     const [users, setUsers] = useState([])
     useEffect(()=>{
-        fetch("/users").then((r)=>{
+        fetch("/api/users").then((r)=>{
             if (r.ok){
                 r.json().then((users)=>setUsers(users));
             }
