@@ -19,7 +19,7 @@ flask-login = "*"
 python-dotenv = "*"
 psycopg2-binary = "*"
 gunicorn = "20.1.0"
-
+flask-cors = "*"
 
 [dev-packages]
 
