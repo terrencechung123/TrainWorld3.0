@@ -75,7 +75,7 @@ const MainContainer = styled.main`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 100%;
+  height: 100vh;
   width: 100vw;
   animation: ${animation} 20s linear infinite;
   background-attachment: fixed;

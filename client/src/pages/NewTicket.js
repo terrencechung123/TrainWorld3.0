@@ -58,7 +58,7 @@ function NewTicket({ user }) {
             />
           </FormField>
           <FormField>
-            <Label htmlFor="trainId" style={{ color: "black", fontSize:"1.5em" }}>Train ID</Label>
+            <Label htmlFor="trainId" style={{ color: "black", fontSize:"1.5em" }}>Existing Train ID</Label>
             <Input
               type="number"
               id="trainId"
@@ -67,7 +67,7 @@ function NewTicket({ user }) {
             />
           </FormField>
           <FormField>
-            <Label htmlFor="userId" style={{ color: "black", fontSize:"1.5em" }}>User ID</Label>
+            <Label htmlFor="userId" style={{ color: "black", fontSize:"1.5em" }}>Existing User ID</Label>
             <Input
               type="number"
               id="userId"
