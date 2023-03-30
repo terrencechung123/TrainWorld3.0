@@ -25,7 +25,7 @@ function LoginForm({ onLogin }) {
     validationSchema,
     onSubmit: (values, { setErrors, setSubmitting }) => {
       setSubmitting(true);
-      fetch("/login", {
+      fetch("/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

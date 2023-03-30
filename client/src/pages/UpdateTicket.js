@@ -26,7 +26,7 @@ function UpdateTicket({ user }) {
   const history = useHistory();
 
   useEffect(() => {
-    fetch(`/tickets/${id}`)
+    fetch(`/api/tickets/${id}`)
       .then((r) => r.json())
       .then((ticket) => {
         setPrice(ticket.price);
@@ -54,7 +54,7 @@ function UpdateTicket({ user }) {
       train_id: trainId,
       user_id: userId,
     };
-    fetch(`/tickets/${id}`, {
+    fetch(`/api/tickets/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

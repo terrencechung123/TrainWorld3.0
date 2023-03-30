@@ -32,7 +32,7 @@ function SignUpForm({ onLogin }) {
     validationSchema,
     onSubmit: (values, { setErrors, setSubmitting }) => {
       setSubmitting(true);
-      fetch("/signup", {
+      fetch("/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
