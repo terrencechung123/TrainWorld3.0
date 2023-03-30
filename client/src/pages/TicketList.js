@@ -9,14 +9,14 @@ function TicketList() {
 
 
   useEffect(() => {
-    fetch("/tickets")
+    fetch("/api/tickets")
     .then((r) => r.json())
     .then(setTickets);
   }, []);
 
 
   function handleDeleteTicket(id) {
-    fetch(`/tickets/${id}`, {
+    fetch(`/api/tickets/${id}`, {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {

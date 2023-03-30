@@ -16,8 +16,8 @@ function NewTicket({ user }) {
     e.preventDefault();
     setIsLoading(true);
     Promise.all([
-      fetch(`/trains/${trainId}`).then((r) => r.json()),
-      fetch(`/users/${userId}`).then((r) => r.json()),
+      fetch(`/api/trains/${trainId}`).then((r) => r.json()),
+      fetch(`/api/users/${userId}`).then((r) => r.json()),
     ])
       .then(([trainData, userData]) => {
         const body = {
@@ -25,7 +25,7 @@ function NewTicket({ user }) {
           train_id: trainId,
           user_id: userId,
         };
-        return fetch("/tickets", {
+        return fetch("/api/tickets", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

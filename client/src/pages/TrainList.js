@@ -14,14 +14,14 @@ const TrainList = () => {
     //     })
     // },[])
     useEffect(() => {
-        fetch("/trains")
+        fetch("/api/trains")
         .then((r) => r.json())
         .then(setTrains);
     }, []);
 
 
     function handleDeleteTrain(id) {
-        fetch(`/trains/${id}`, {
+        fetch(`/api/trains/${id}`, {
             method: "DELETE",
         }).then((r) => {
             if (r.ok) {

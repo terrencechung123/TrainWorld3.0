@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     // auto-login
-    fetch("/check_session").then((r) => {
+    fetch("/api/check_session").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
@@ -75,7 +75,7 @@ const MainContainer = styled.main`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   animation: ${animation} 20s linear infinite;
   background-attachment: fixed;
