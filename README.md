@@ -1,4 +1,3 @@
-README
 Train World is a full-stack web application built using a Flask API backend and a React frontend. The application has three models: User, Train, and Ticket, with the following relationships:
 
 One-to-many relationship between User and Ticket. Each User can have many Tickets, but each Ticket can only have one User.
