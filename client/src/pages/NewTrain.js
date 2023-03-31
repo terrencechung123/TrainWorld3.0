@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router";
 import styled from "styled-components";
-import { Button, Error, FormField, Input, Label, Textarea } from "../styles";
+import { Button, Error, FormField, Input, Label} from "../styles";
 
 function NewTrain() {
     const [title, setTitle] = useState("");
@@ -29,7 +29,7 @@ function NewTrain() {
     //   arrival_time: arrivalTime,
     //   capacity: capacity,
         };
-        fetch("/trains", {
+        fetch("/api/trains", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

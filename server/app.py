@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
-from flask import request, session, make_response
+from flask import request, session, make_response, abort
 from flask_restful import Resource
 from sqlalchemy.exc import IntegrityError
 from flask_login import current_user
 
 from config import *
 from models import db, User, Ticket, Train
-import os
 from dotenv import load_dotenv
 
 class Signup(Resource):
@@ -40,11 +39,16 @@ class Signup(Resource):
 
 class CheckSession(Resource):
     def get(self):
-        if session.get('user_id'):
-            user = User.query.filter(User.id == session['user_id']).first()
-            return user.to_dict(), 200
-        return {'error': '401 Unauthorized'}, 401
-api.add_resource(CheckSession, '/check_session', endpoint='check_session')
+        try:
+            user = User.query.filter_by(id=session['user_id']).first()
+            response = make_response(
+                user.to_dict(),
+                200
+            )
+            return response
+        except:
+            abort(401, "Unauthorized")
+api.add_resource(CheckSession, '/api/check_session')
 
 class Login(Resource):
     def post(self):
@@ -150,7 +154,7 @@ class TicketById(Resource):
         db.session.commit()
         return make_response({}, 204)
     
-api.add_resource(TicketById, '/tickets/<int:id>')
+api.add_resource(TicketById, '/api/tickets/<int:id>')
 
 
 
@@ -212,7 +216,7 @@ class Trains(Resource):
             train.to_dict(),
             201
         )
-api.add_resource(Trains, '/trains')
+api.add_resource(Trains, '/api/trains')
 
 class TrainById(Resource):
     def get(self, id):
@@ -230,7 +234,7 @@ class TrainById(Resource):
         db.session.delete(train)
         db.session.commit()
         return make_response({}, 204)
-api.add_resource(TrainById, "/trains/<int:id>")
+api.add_resource(TrainById, "/api/trains/<int:id>")
 
 
 
@@ -252,14 +256,14 @@ class UserById(Resource):
         return make_response(
             user,
             200)
-api.add_resource(UserById, "/users/<int:id>")
+api.add_resource(UserById, "/api/users/<int:id>")
 
-api.add_resource(Users,'/users')
-api.add_resource(Tickets, '/tickets')
-api.add_resource(Signup, '/signup', endpoint='signup')
-api.add_resource(Login, '/login', endpoint='login')
-api.add_resource(Logout, '/logout', endpoint='logout')
-api.add_resource(TicketIndex, '/ticket_index', endpoint='ticket_index')
+api.add_resource(Users,'/api/users')
+api.add_resource(Tickets, '/api/tickets')
+api.add_resource(Signup, '/api/signup')
+api.add_resource(Login, '/api/login')
+api.add_resource(Logout, '/api/logout')
+api.add_resource(TicketIndex, '/api/ticket_index')
 
 
 if __name__ == '__main__':

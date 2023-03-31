@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
+// import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Box, Button } from "../styles";
 function UserList() {
     const [users, setUsers] = useState([])
     useEffect(()=>{
-        fetch("/users").then((r)=>{
+        fetch("/api/users").then((r)=>{
             if (r.ok){
                 r.json().then((users)=>setUsers(users));
             }

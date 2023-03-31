@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useHistory } from "react-router";
 import styled from "styled-components";
-import ReactMarkdown from "react-markdown";
-import { Button, Error, FormField, Input, Label, Textarea } from "../styles";
+// import ReactMarkdown from "react-markdown";
+import { Button, Error, FormField, Input, Label} from "../styles";
 
 function NewTicket({ user }) {
   const [price, setPrice] = useState("");
@@ -16,8 +16,8 @@ function NewTicket({ user }) {
     e.preventDefault();
     setIsLoading(true);
     Promise.all([
-      fetch(`/trains/${trainId}`).then((r) => r.json()),
-      fetch(`/users/${userId}`).then((r) => r.json()),
+      fetch(`/api/trains/${trainId}`).then((r) => r.json()),
+      fetch(`/api/users/${userId}`).then((r) => r.json()),
     ])
       .then(([trainData, userData]) => {
         const body = {
@@ -25,7 +25,7 @@ function NewTicket({ user }) {
           train_id: trainId,
           user_id: userId,
         };
-        return fetch("/tickets", {
+        return fetch("/api/tickets", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -58,7 +58,7 @@ function NewTicket({ user }) {
             />
           </FormField>
           <FormField>
-            <Label htmlFor="trainId" style={{ color: "black", fontSize:"1.5em" }}>Train ID</Label>
+            <Label htmlFor="trainId" style={{ color: "black", fontSize:"1.5em" }}>Existing Train ID</Label>
             <Input
               type="number"
               id="trainId"
@@ -67,7 +67,7 @@ function NewTicket({ user }) {
             />
           </FormField>
           <FormField>
-            <Label htmlFor="userId" style={{ color: "black", fontSize:"1.5em" }}>User ID</Label>
+            <Label htmlFor="userId" style={{ color: "black", fontSize:"1.5em" }}>Existing User ID</Label>
             <Input
               type="number"
               id="userId"

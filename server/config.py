@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
 from flask_restful import Api
@@ -6,14 +7,14 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 import os
 from dotenv import load_dotenv
-from flask_cors import CORS
 load_dotenv()
 
 app = Flask(
     __name__,
-    static_url_path='',
+    static_url_path='/',
     static_folder='../client/build',
     template_folder='../client/build')
+CORS(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
