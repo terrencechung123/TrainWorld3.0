@@ -4,10 +4,9 @@ One-to-many relationship between User and Ticket. Each User can have many Ticket
 One-to-many relationship between Train and Ticket. Each Train can have many Tickets, but each Ticket can only be associated with one Train.
 Many-to-many relationship between User and Train, using the Ticket association table. Each User can be associated with many Trains through their Tickets, and each Train can be associated with many Users through their Tickets.
 Running the application
-To run the application, use the following commands:
+To run the application, use the following commands inside of the root directory:
 
-css
-Copy code
+
 pip install -r requirements.txt && npm install --prefix client && npm run build --prefix client
 gunicorn --chdir server app:app
 
