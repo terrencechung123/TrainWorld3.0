@@ -12,10 +12,10 @@ gunicorn --chdir server app:app
 
 To view the website, enter trainworld.onrender.com
 
-Backend
+
 The backend provides full CRUD actions for the Train and Ticket models, and minimum of create and read actions for the User model. The application uses Flask to implement the backend.
 
-Frontend
+
 The frontend uses React to implement the client-side of the application. The application provides a Login & Signup feature, with hashed passwords for secure authentication. It uses Formik to handle input forms and validation, with at least one data type and string/number format validation.
 
 The application also uses React Router to provide three different client-side routes, with a navigation bar for easy navigation. The client and server communicate using fetch().
