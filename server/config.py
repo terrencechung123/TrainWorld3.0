@@ -30,8 +30,14 @@ bcrypt = Bcrypt(app)
 migrate = Migrate(app, db)
 db.init_app(app)
 
-@app.route('/')
+@app.route('/users')
+@app.route('/trains')
+@app.route('/new_train')
+@app.route('/new_ticket')
+@app.route('/update/:id/edit')
+@app.route('/tickets')
 @app.route('/<int:id>')
+@app.route('/')
 def index(id=0):
     return render_template("index.html")
 

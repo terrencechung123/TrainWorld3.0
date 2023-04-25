@@ -31,6 +31,8 @@ function App() {
 
   if (!user) return <Login onLogin={handleLogin} />;
 
+
+
   return (
     <AppWrapper>
       <NavBar user={user} setUser={setUser} />
